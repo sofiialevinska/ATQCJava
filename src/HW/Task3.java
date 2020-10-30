@@ -5,27 +5,50 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Task3 {
+
+    public static class PhoneCall {
+        private float c;
+        private float t;
+        public static int count=1;
+
+        public PhoneCall () throws IOException {
+            SetCallDetails();
+            count++;
+        }
+
+        public void SetCallDetails () throws IOException {
+            BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+            System.out.print ("Please enter cost of the call from country " + count + ": ");
+            c = Float.parseFloat(bf.readLine());
+
+            System.out.print ("Please enter time of the call with country " + count + ": ");
+            t = Float.parseFloat(bf.readLine());
+        }
+
+        public float Cost () {
+            return c*t;
+        }
+
+    }
+
     public static void main(String[] args) throws IOException {
+
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-        System.out.print ("Please enter cost of the call from country1: ");
-        float c1 = Float.parseFloat(bf.readLine());
-        System.out.print ("Please enter cost of the call from country2: ");
-        float c2 = Float.parseFloat(bf.readLine());
-        System.out.print ("Please enter cost of the call from country3: ");
-        float c3 = Float.parseFloat(bf.readLine());
+        System.out.print ("Please enter number of countries you want to call: ");
+        int number = Integer.parseInt(bf.readLine());
+        int SumCost = 0;
 
-        System.out.print ("Please enter time of the call with country1: ");
-        float t1 = Float.parseFloat(bf.readLine());
-        System.out.print ("Please enter time of the call with country2: ");
-        float t2 = Float.parseFloat(bf.readLine());
-        System.out.print ("Please enter time of the call with country3: ");
-        float t3 = Float.parseFloat(bf.readLine());
+        PhoneCall [] CallCountry = new PhoneCall[number];
 
-        System.out.println("Cost of call with country1 is " +c1*t1);
-        System.out.println("Cost of call with country2 is " +c2*t2);
-        System.out.println("Cost of call with country3 is " +c3*t3);
-
-        System.out.println("Cost of call with country1, country2 and country3  is " +(c1*t1+c2*t2+c3*t3));
+        for (int i =0; i< CallCountry.length; i++ )
+        {
+            CallCountry[i] = new PhoneCall();
+            SumCost += CallCountry[i].Cost();
+            System.out.println("Cost of call with country " + i+1 + " is " + CallCountry[i].Cost());
+            System.out.println();
+        }
+        System.out.println("Cost of calls to all " + number + " countries is: " +SumCost);
+        System.out.println("----------------------");
 
     }
 }

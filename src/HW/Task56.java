@@ -7,7 +7,38 @@ import java.io.StringReader;
 
 public class Task56 {
 
+    public static class Brick {
+        private double a;
+        private double b;
+        private double c;
+        private double x;
+        private double y;
+        private Boolean bool = false;
+
+        public Brick ( double a, double b, double c) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
+
+        public void Hole (double x, double y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public void PassHole () {
+            if ((a<=x & b<=y) | (a<=x & c<=y) | (b<=x & c<=y) |
+                    (b<=x & a<=y) | (c<=x & a<=y) | (c<=x & b<=y))
+            { bool = true; }
+            if (bool) System.out.println("Brick can enter the hole");
+            else System.out.println("Brick can NOT enter the hole");
+        }
+    }
+
     public static void main(String[] args) throws IOException {
+
+       /** Read a,b,c,x,y from Console */
+
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("Please enter brick dimensions");
@@ -24,11 +55,13 @@ public class Task56 {
         System.out.print("Height: ");
         double y = Double.parseDouble(bf.readLine());
 
-        Boolean bool = false;
-        if ((a<=x & b<=y) | (a<=x & c<=y) | (b<=x & c<=y) | (b<=x & a<=y) | (c<=x & a<=y) | (c<=x & b<=y))
-            bool = true;
-        if (bool) System.out.println("Brick can enter the hole");
-        else System.out.println("Brick can NOT enter the hole");
+        /** Create object brick and set hole dimentions */
+
+        Brick brick = new Brick (a,b,c);
+        brick.Hole(x,y);
+
+        /** Run method PassHole that checks wheather brick can pass the hole */
+        brick.PassHole();
 
     }
 }

@@ -19,7 +19,7 @@ public class Task2 {
          */
         public static void ReadFromConsole() throws IOException {
             BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("What is your name?");
+            System.out.println("What is your name? ");
             name = bf.readLine();
             System.out.println("Where are you live, " + name + "?");
             address = bf.readLine();

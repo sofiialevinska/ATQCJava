@@ -7,7 +7,7 @@ public class SalariedEmployee extends EmployeeBaseClass implements Employee {
 
     public SalariedEmployee(String name, String employeeId, String socialSecurityNumber, double hourlyrate, double numhours) {
         this.name = name;
-        this.employeeId=employeeId;
+        this.employeeId = employeeId;
         this.socialSecurityNumber = socialSecurityNumber;
         this.hourlyrate = hourlyrate;
         this.numhours = numhours;

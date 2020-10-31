@@ -1,5 +1,5 @@
 package HW;
 
 public interface Employee {
-    double calculatePay ();
+    double calculatePay();
 }

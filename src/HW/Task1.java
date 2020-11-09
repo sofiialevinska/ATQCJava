@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
  * @version 09 November 2020
  */
 
-public class Task1Circle {
+public class Task1 {
 
     /**
      * Method for reading Radius value from Console
@@ -42,7 +42,7 @@ public class Task1Circle {
         /**
          * Circle Constructor sets radius
          *
-         * @param radius is a Circle radius.
+         * @param radius is a Circle radius
          */
         private Circle(double radius) {
             this.radius = radius;
